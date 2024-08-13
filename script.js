@@ -19,9 +19,9 @@ const inputGridNumber = document.querySelector("#gridNumber");
 
 function buildGrid() {
 
-let gridSize = ~~(gridContainer.offsetWidth / +inputGridNumber.value);
+let gridSize = (gridContainer.offsetWidth / +inputGridNumber.value);
 
-for (let i = 0; i < inputGridNumber.value**2; i++) {
+for (let i = 1; i <= inputGridNumber.value**2; i++) {
     let cell = document.createElement("div");
     cell.style.boxSizing = "border-box";
     cell.style.width = `${gridSize}px`;
