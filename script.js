@@ -1,33 +1,21 @@
-// when coursor hovers div changes background color
-// when hovers again opacity +10%
-
-// slider for number of grid
-// two modes - buttons - colorful and black-white
-
 const gridContainer = document.querySelector(".gridContainer");
 const inputGridNumber = document.querySelector("#gridNumber");
 
-const textInputGridNumber = document.querySelector("p");
+buildGrid(); 
 
 function buildGrid() {
 
-    textInputGridNumber.textContent = 
-        `Number of squares ${+inputGridNumber.value}`
-
-    let gridSizePercent = (gridContainer.offsetWidth / +inputGridNumber.value) / gridContainer.offsetWidth *100;
+    let cellSizePercent = (gridContainer.offsetWidth / +inputGridNumber.value) / gridContainer.offsetWidth *100;
     let gridCells_arr = [];
 
     for (let i = 1; i <= inputGridNumber.value**2; i++) {
         let cell = document.createElement("div");
-        cell.style.width = `${gridSizePercent}%`;
-        // cell.textContent = `${i}`;
-        // cell.style.fontSize = "10px";
-        // cell.id = `gridCell${i}`;
+        cell.style.width = `${cellSizePercent}%`;
         gridCells_arr.push(cell);
         gridContainer.appendChild(cell).className = "gridCell";
     }
 
-    listenMouseover(gridCells_arr);
+    paintCells(gridCells_arr);
 }
 
 function rebuildGrid(callback) {
@@ -41,9 +29,7 @@ function rebuildGrid(callback) {
     if(callback) callback();
 }
 
-buildGrid(); 
-
-function listenMouseover (gridCells_arr) {
+function paintCells (gridCells_arr) {
 
     gridCells_arr.forEach(cell => {
         cell.addEventListener("mouseover", e => {
@@ -51,6 +37,8 @@ function listenMouseover (gridCells_arr) {
             let checkbox_RGB_mode = document.querySelector("#RGB_mode");
             let RGB_mode_on = checkbox_RGB_mode.checked;
 
+            // if it is colored opacity +10%, is not paint it
+            // WB or RGB
             if (e.target.id == "rgb-colored")
             {
                 let cellOpacity = +e.target.style.opacity + 0.2;
