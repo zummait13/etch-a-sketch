@@ -17,13 +17,15 @@ body {
 .gridContainer {
     display: flex;
     flex-wrap: wrap;
-    flex-basis: 960px;
-    aspect-ratio: 1/1;
+    width: 50vh;
+    height: 50vh;
+    /* border: solid 1px black; */
 }
 
 .gridCell {
-    border: solid 1px black;
+    border: dotted 0.1px #D1D1D1;
     aspect-ratio: 1/1;
+    box-sizing: border-box;
 }
 
 /* SWITCH BUTTON */
