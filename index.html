@@ -13,19 +13,25 @@
         <div class="content">
             <div class="buttons">
                 <label>
+                    <p></p>
                     <input type="range" 
                             name="gridNumber" 
                             id="gridNumber" 
-                            min="1"
-                            max="100"
+                            min="10"
+                            max="50"
                             onchange="rebuildGrid(buildGrid);">
-                    Number of squares
                 </label>
 
-                <label class="switch">
-                    <input type="checkbox">
-                    <span class="slider"></span>
-                </label>
+                <div class = "WB-or-RGB">
+                    <span>WB</span>
+
+                    <label class="switch">
+                        <input type="checkbox" name="RGB_mode" id="RGB_mode">
+                        <span class="slider"></span>
+                    </label>
+
+                    <span>RGB</span>
+                </div>
             </div>
 
             <div class="gridContainer"></div>
